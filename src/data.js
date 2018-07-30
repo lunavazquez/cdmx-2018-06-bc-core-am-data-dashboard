@@ -1,17 +1,23 @@
+// primera funcion
 window.computeStudentStats = (laboratoria) => {
+  // arreglo de estudiantes
   let studentsArray = [];
 
   // console.log(laboratoria);
+  // se itera cada sede del objeto laboratoria
   for (let sede in laboratoria) {
     // console.log(laboratoria[sede]);
     const generaciones = laboratoria[sede].generacion;
+    // se itera cada generacion del objeto generaciones
     for (let generacion in generaciones) {
       // console.log(generaciones[generacion]);
 
       let estudiantes = generaciones[generacion].estudiantes;
       // console.log(estudiantes);
+      // se itera estudiante del ARREGLO de estudiantes
       for (let estudiante of estudiantes) {
         // console.log(estudiante);
+        // se crea el objeto student
         let student = {
           name: estudiante.nombre,
           email: estudiante.correo,
@@ -21,7 +27,7 @@ window.computeStudentStats = (laboratoria) => {
         };
 
         student.completedPercentage = estudiante.progreso.porcentajeCompletado;
-
+        // se compara el estatus de la alumna de acuerdo al porcentaje
         if (student.completedPercentage <= 60) {
           student.stats.status = 'Debajo';
         } else if (student.completedPercentage >= 90) {
@@ -49,7 +55,7 @@ window.computeStudentStats = (laboratoria) => {
   // console.log(studentsArray);
   return studentsArray;
 };
-
+// segunda funcion
 window.computeGenerationsStats = (laboratoria) => {
   // console.log(laboratoria);
   let generationsArray = [];
@@ -69,6 +75,7 @@ window.computeGenerationsStats = (laboratoria) => {
       generation.average = estudiantes.reduce((acumulador, estudiante) => {
         return acumulador + estudiante.progreso.porcentajeCompletado;
       }, 0);
+      // math.round- redondea el numero
       generation.average = Math.round(generation.average / generation.count);
       generationsArray.push(generation);
     }
@@ -78,11 +85,11 @@ window.computeGenerationsStats = (laboratoria) => {
 };
 
 window.computeStudentsByCampus = (campus) => {
-  const studentsByCamous = window.computeStudentStats(window.laboratoria).filter(student => student.campus === campus);
-  return studentsByCamous;
+  const studentsByCampus = window.computeStudentStats(window.laboratoria).filter(student => student.campus === campus);
+  return studentsByCampus;
 };
 
 // TODO: corregir la funcion de filtrado
 window.filterStudents = (students, search) => {
-  return students.filter(student => student.name.indexOf(search) > -1);
+  // return students.filter(student => student.name.indexOf(search) > -1);
 };

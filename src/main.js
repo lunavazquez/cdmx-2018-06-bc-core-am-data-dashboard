@@ -21,32 +21,37 @@ window.createTable = (students) => {
         <td>${student.campus.toUpperCase()}</td>
       </tr>
     `;
-  }).join('');
+  }).join(''); // se quita la ',' y se une por ''
   document.getElementById('students').innerHTML = htmlTable;
 };
 
-// render by campus
+// render por campus
 window.render = (campus = 'lima') => {
   const students = window.computeStudentsByCampus(campus);
   window.createTable(students);
 };
 
-window.search = (event) => {
-  event.preventDefault();
-  event.stopPropagation();
-  const search = document.getElementById('input-search').value.toUpperCase();
-  const students = window.computeStudentStats(window.laboratoria);
-  const filteredStudents = window.filterStudents(students, search);
-  console.log(filteredStudents);
-  // window.createTable(filteredStudents);
-};
+// trabajando en la funcionalidad
+// window.search = (event) => {
+// es una funcion que se ejecuta para que no refresque la pagina
+// event.preventDefault();
+// // que el evento de refrescar la pagina NO se le pase a ningun otro evento
+// event.stopPropagation();
+// const search = document.getElementById('input-search').value.toUpperCase();
+// const students = window.computeStudentStats(window.laboratoria);
+// const filteredStudents = window.filterStudents(students, search);
+// console.log(filteredStudents);
+// window.createTable(filteredStudents);
+// };
 
-//
+// fetch de la data(laboratoria)
+// cuando carga la pagina
 window.onload = () => {
   fetch('https://raw.githubusercontent.com/lunavazquez/cdmx-2018-06-bc-core-am-data-dashboard/master/data/laboratoria.json')
     .then(response => response.json())
     .then((laboratoria) => {
       window.laboratoria = laboratoria;
+      // mostrar por default 'lima'
       return window.render('lima');
     });
 };

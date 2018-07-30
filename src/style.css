@@ -1,0 +1,28 @@
+.bg-light {
+  background-color: #afbac5!important;
+}
+
+a {
+  color: #FF009E;
+  font-size: 38px;
+}
+
+.btn-outline-success {
+  color: #FF009E;
+  background-color: transparent;
+  background-image: none;
+  border-color: #FF009E;
+}
+
+img{
+  width: 320px;
+  height: 45px;
+}
+
+.table thead th {
+  font-size: 20px;
+}
+
+a:hover {
+  color: #FEE33E;
+}
