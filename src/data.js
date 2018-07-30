@@ -1,5 +1,5 @@
 // primera funcion
-window.computeStudentStats = (laboratoria) => {
+window.computeStudentsStats = (laboratoria) => {
   // arreglo de estudiantes
   let studentsArray = [];
 
@@ -85,11 +85,13 @@ window.computeGenerationsStats = (laboratoria) => {
 };
 
 window.computeStudentsByCampus = (campus) => {
-  const studentsByCampus = window.computeStudentStats(window.laboratoria).filter(student => student.campus === campus);
+  const studentsByCampus = window.computeStudentsStats(window.laboratoria).filter(student => student.campus === campus);
   return studentsByCampus;
 };
 
-// TODO: corregir la funcion de filtrado
+// TODO - corregir la funcion de filtrado
 window.filterStudents = (students, search) => {
   // return students.filter(student => student.name.indexOf(search) > -1);
+  console.log(students);
+  console.log(search);
 };
