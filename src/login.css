@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+   }
+   
+   body {
+    background:#fbe323;
+    
+   }
+  
+   #contenedor{
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+   }
+  
+   header h1{
+    font-size: 50px;
+    text-align: center;
+    
+   }
+  
+   #contenido{
+    float: right;
+   }
+  
+   #contenido h2{
+    font-size: 40px;
+    text-align: center;
+  
+   }
+  
+   #email{
+     margin-top: 20px;
+   }
+  
+   #contraseña{
+     margin-top: 20px;
+   }
+  
+   #selector{
+  margin-left: 20px;
+  text-align: center;
+   }
+  
